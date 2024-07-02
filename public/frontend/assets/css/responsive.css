@@ -1,0 +1,62 @@
+@media all and (max-width: 1200px) {}
+
+@media all and (max-width: 1080px) {
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-area {
+        display: none;
+    }
+
+}
+
+
+@media all and (max-width: 992px) {}
+
+@media all and (max-width: 768px) {
+    .header-top {
+        text-align: center;
+    }
+
+    .ht-social {
+        margin-top: 5px;
+        float: none;
+    }
+    .banner-box {
+        bottom: -185px;
+    }
+    .banner-box > h1 {
+        font-size: 20px;
+    }
+    .banner-box > h4 {
+        font-size: 16px;
+    }
+    canvas {
+        height: 203px !important;
+    }
+}
+
+@media all and (max-width: 576px) {}
+
+
+@media all and (max-width: 480px) {
+    .carousel-item img {
+        height: 145px;
+    }
+    .banner-box {
+        bottom: -194px;
+    }
+    .banner-box > h1 {
+        font-size: 20px;
+    }
+    .banner-box > h4 {
+        font-size: 16px;
+    }
+    canvas {
+        height: 203px !important;
+    }
+}
+
+@media all and (max-width: 360px) {}

@@ -25,26 +25,63 @@
 <header class="wow fadeInDown clearfix" data-wow-duration="1s">
     <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand align-self-center" href="index.html">
+            <a class="navbar-brand align-self-center" href="{{ route('front.index')}}">
                 <img src="logo/logo.png" class="logo" alt="Logo">
             </a>
-
             <div class="menu-area ml-auto">
                 <ul>
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li class="dd-btn1"><a href="#!"> About Us <i class="fa fa-angle-down"></i></a>
+                    <li><a href="{{ route('front.index')}}"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="dd-btn1"><a href="#">Software <i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu1">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Accounting & Inventory</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Customize ERP</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> POS Software</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-commerce Application</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Hospital Management</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Pharmacy Management</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> HR Management System</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Doctor Appointment System</a></li>
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li class="dd-btn1"><a href="#"> Website <i class="fa fa-angle-down"></i></a>
 
                         <div class="dropdown-menu1">
                             <ul>
-                                <li><a href="about.html"><i class="fa fa-long-arrow-right"></i> Company Profiles</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Careers</a></li>
-
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Static Website</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Dynamic Website</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-Commerce Website</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> News Portal</a></li>
                             </ul>
                         </div>
 
                     </li>
 
-                    <li class="dd-btn1"><a href="#"> Domain & Hosting<i class="fa fa-angle-down"></i></a>
+                    <li class="dd-btn1"><a href="#"> Services <i class="fa fa-angle-down"></i></a>
+
+                        <div class="dropdown-menu1">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise Cloud Services</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise SMS Solutions</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> IT Consultancy</a></li>
+                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Web Maintenance</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{{ route('front.consultancy')}}"> Consultancy </a></li>
+                    <li class="dd-btn1"><a href="#!"> About Us <i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu1">
+                            <ul>
+                                <li><a href="about.html"><i class="fa fa-long-arrow-right"></i> Company Profiles</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    {{-- <li class="dd-btn1"><a href="#"> Domain & Hosting<i class="fa fa-angle-down"></i></a>
 
                         <div class="dropdown-menu1">
                             <ul>
@@ -90,55 +127,10 @@
                             </ul>
                         </div>
 
-                    </li>
+                    </li> --}}
 
-                    <li class="dd-btn1"><a href="#">Software <i class="fa fa-angle-down"></i></a>
-                        <div class="dropdown-menu1">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Accounting & Inventory</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Customize ERP</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> POS Software</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-commerce Application</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Hospital Management</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Pharmacy Management</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> HR Management System</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Doctor Appointment System</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Question Bank Software</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Question Bank Software</a></li>
-                            </ul>
-                        </div>
-
-
-                    </li>
-
-                    <li class="dd-btn1"><a href="#"> Website <i class="fa fa-angle-down"></i></a>
-
-                        <div class="dropdown-menu1">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Static Website</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Dynamic Website</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-Commerce Website</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> News Portal</a></li>
-                            </ul>
-                        </div>
-
-                    </li>
-
-                    <li class="dd-btn1"><a href="#"> Services <i class="fa fa-angle-down"></i></a>
-
-                        <div class="dropdown-menu1">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise Cloud Services</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise SMS Solutions</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> IT Consultancy</a></li>
-                                <li><a href="#"><i class="fa fa-long-arrow-right"></i> Web Maintenance</a></li>
-                            </ul>
-                        </div>
-
-                    </li>
-
-
-                    <li><a href="contact.html"> Contact</a></li>
+                    <li><a href="#!"> Contact</a></li>
+                    <li><a href="#!"> Carieer</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars menu-icon"></i>
@@ -165,6 +157,63 @@
                 </div>
             </div>
             <div class="menu-box">
+                <div class="menu-link" id="headingFour">
+                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseFour"> Software<i class="fa fa-plus"></i></a>
+                </div>
+                <div id="collapseFour" class="collapse menu-body" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Accounting & Inventory</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Customize ERP</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> POS Software</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-commerce Application</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Hospital Management</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Pharmacy Management</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> HR Management System</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Doctor Appointment System</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="menu-box">
+                <div class="menu-link" id="headingFive">
+                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseFive"> Website<i class="fa fa-plus"></i></a>
+                </div>
+                <div id="collapseFive" class="collapse menu-body" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Static Website</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Dynamic Website</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-Commerce Website</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> News Portal</a></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="menu-box">
+                <div class="menu-link" id="headingSix">
+                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseSix"> Services<i class="fa fa-plus"></i></a>
+                </div>
+                <div id="collapseSix" class="collapse menu-body" aria-labelledby="headingSix" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise Cloud Services</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise SMS Solutions</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> IT Consultancy</a></li>
+                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Web Maintenance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-box">
+                <div class="menu-link">
+                    <a href="{{ route('front.consultancy')}}"> Consultancy</a>
+                </div>
+            </div>
+            <div class="menu-box">
                 <div class="menu-link" id="headingTwo">
                     <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseTwo"> About Us<i class="fa fa-plus"></i></a>
                 </div>
@@ -178,13 +227,7 @@
                     </div>
                 </div>
             </div>
-            <style>
-                .scroll-div-dist {
-                    background: #ececec !important;
-                }
-
-            </style>
-            <div class="menu-box">
+            {{-- <div class="menu-box">
                 <div class="menu-link" id="headingThree">
                     <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseThree"> Domain & Hosting<i class="fa fa-plus"></i></a>
                 </div>
@@ -233,64 +276,15 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="menu-box">
-                <div class="menu-link" id="headingFour">
-                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseFour"> Software<i class="fa fa-plus"></i></a>
-                </div>
-                <div id="collapseFour" class="collapse menu-body" aria-labelledby="headingFour" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Accounting & Inventory</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Customize ERP</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> POS Software</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-commerce Application</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Hospital Management</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Pharmacy Management</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> HR Management System</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Doctor Appointment System</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Question Bank Software</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Question Bank Software</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-            <div class="menu-box">
-                <div class="menu-link" id="headingFive">
-                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseFive"> Website<i class="fa fa-plus"></i></a>
-                </div>
-                <div id="collapseFive" class="collapse menu-body" aria-labelledby="headingFive" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Static Website</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Dynamic Website</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> E-Commerce Website</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> News Portal</a></li>
-                        </ul>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="menu-box">
-                <div class="menu-link" id="headingSix">
-                    <a class="mmenu-btn" type="button" data-toggle="collapse" data-target="#collapseSix"> Services<i class="fa fa-plus"></i></a>
-                </div>
-                <div id="collapseSix" class="collapse menu-body" aria-labelledby="headingSix" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise Cloud Services</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Enterprise SMS Solutions</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> IT Consultancy</a></li>
-                            <li><a href="#"><i class="fa fa-long-arrow-right"></i> Web Maintenance</a></li>
-                        </ul>
-                    </div>
+                <div class="menu-link">
+                    <a href="#"> Contact</a>
                 </div>
             </div>
             <div class="menu-box">
                 <div class="menu-link">
-                    <a href="contact.html"> Contact</a>
+                    <a href="#"> Carieer</a>
                 </div>
             </div>
         </div>

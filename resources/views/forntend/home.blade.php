@@ -1,5 +1,5 @@
 @extends('forntend.layouts.master')
-@section('title', 'Home | Adduhaa Tech')
+@section('title', 'Adduhaa Tech')
 @section('content')
   <!--start slider area-->
 @include('forntend.layouts.include.slider')

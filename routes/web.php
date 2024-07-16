@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(FrontendController::class)->as('fornt.')->group(function(){
+Route::controller(FrontendController::class)->as('front.')->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::get('/consultancy', 'consultancy')->name('consultancy');
 });
 
 require __DIR__.'/auth.php';

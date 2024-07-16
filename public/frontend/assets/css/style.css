@@ -1,4 +1,9 @@
 @import url(../css/default.css);
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --jost:"Jost", sans-serif;
+    --charm:"Charm", cursive;
+}
 
 /*header top area styles*/
 .header-top {
@@ -1053,3 +1058,19 @@ button.mixitup-control-active {
 
 }
 
+/* -----Consultancy--------*/
+.consultancy-section{
+    background: #fff;
+}
+.contact-image{text-align: center;}
+.contact-image > img {
+    width: 78px;
+    rotate: 43deg;
+}
+.contact-image > h3 {
+    font-size: 33px;
+    font-weight: 700;
+    font-family: var(--charm);
+    margin-top: 10px;
+}
+.consult-img > img{width: 100%;}

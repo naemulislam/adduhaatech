@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrontendController::class)->as('front.')->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/consultancy', 'consultancy')->name('consultancy');
+});
+Route::controller(DashboardController::class)->prefix('admin/dashboard/')->group(function(){
+    Route::get('/', 'dashboard')->name('dashboard');
 });
 
 require __DIR__.'/auth.php';

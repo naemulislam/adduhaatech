@@ -14,4 +14,7 @@ class FrontendController extends Controller
     public function consultancy(){
         return view('forntend.consultancy');
     }
+    public function json(){
+        return view('forntend.test');
+    }
 }

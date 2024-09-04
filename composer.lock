@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a349383c5500fe749471b3bfb83df832",
+    "content-hash": "7f893346022ce9d056d41dd01f11ad27",
     "packages": [
+        {
+            "name": "arafat69/laravel-repository",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arafat69/laravel-repository.git",
+                "reference": "b530096c00a989dfe86e0f6e49e42e7525d2d0bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arafat69/laravel-repository/zipball/b530096c00a989dfe86e0f6e49e42e7525d2d0bf",
+                "reference": "b530096c00a989dfe86e0f6e49e42e7525d2d0bf",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Arafat\\LaravelRepository\\RepositoryServiceProvider"
+                    ],
+                    "aliases": {
+                        "Repository": "Arafat\\LaravelRepository\\RepositoryFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arafat\\LaravelRepository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "arafat69",
+                    "email": "arafataliar69@gmail.com"
+                }
+            ],
+            "description": "simple laravel repository pattern",
+            "homepage": "https://github.com/arafat69/laravel-repository",
+            "keywords": [
+                "arafat",
+                "laravel",
+                "laravel-repository",
+                "repository"
+            ],
+            "support": {
+                "issues": "https://github.com/arafat69/laravel-repository/issues",
+                "source": "https://github.com/arafat69/laravel-repository/tree/v1.2.1"
+            },
+            "time": "2024-06-07T13:20:33+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",

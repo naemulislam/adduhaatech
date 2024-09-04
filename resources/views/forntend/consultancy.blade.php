@@ -15,32 +15,51 @@
             </div>
             <div class="col-md-6">
                 <div class="form-sec">
-                    <form>
+                    <form action="{{ route('front.consultancy.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Name <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control" placeholder="Enter your name">
+                            @error('name')
+                            <span class="text-danger">{{ $message}}</span>
+                            @enderror
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Phone</label>
+                                    <label>Phone <span class="text-danger">*</span></label>
                                     <input type="number" name="phone" class="form-control" placeholder="Enter your phone">
+                                    @error('phone')
+                            <span class="text-danger">{{ $message}}</span>
+                            @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Email</label>
+                                    <label>Email <span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                                    @error('email')
+                            <span class="text-danger">{{ $message}}</span>
+                            @enderror
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Service category</label>
+                            <label>Service category <span class="text-danger">*</span></label>
                             <input type="text" name="service_category" class="form-control" placeholder="Enter service category">
+                            @error('service_category')
+                            <span class="text-danger">{{ $message}}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label>Service Details</label>
-                            <textarea class="form-control" placeholder="Enter service details"></textarea>
+                            <label>Service Details <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="service_details" placeholder="Enter service details"></textarea>
+                            @error('service_details')
+                            <span class="text-danger">{{ $message}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

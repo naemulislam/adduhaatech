@@ -10,17 +10,17 @@
     <li class="sidebar-item">
         <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
             <i class="align-middle" data-feather="briefcase"></i>
-            <span class="align-middle">UI Elements</span>
+            <span class="align-middle">Consultancies</span>
         </a>
         <ul id="ui" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-alerts.html">Alerts</a>
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{ route('admin.consultancies.index')}}">Inbox</a>
             </li>
         </ul>
     </li>
 
     <li class="sidebar-item">
-        <a class="sidebar-link" href="pages-settings.html">
+        <a class="sidebar-link" href="{{ route('admin.settings.index')}}">
             <i class="align-middle" data-feather="settings"></i>
             <span class="align-middle">Settings</span>
         </a>

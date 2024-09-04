@@ -10,8 +10,13 @@
     <meta name="keywords" content="adduhaatech, adduhaa tech it, adduha, adduhatech" />
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
     <title>Admin Dashboard</title>
+    <link href="{{ asset('defaults/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('defaults/toastr/toastr.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('defaults/summernote/summernote.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('defaults/dataTable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend') }}/css/app.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="wrapper">
         <nav id="sidebar" class="sidebar">
@@ -19,7 +24,7 @@
                 <a class="sidebar-brand" href="index.html">
                     <span class="align-middle">AdduhaaTECH</span>
                 </a>
-               @include('backend.layout.include.sidebar')
+                @include('backend.layout.include.sidebar')
             </div>
         </nav>
 
@@ -42,6 +47,13 @@
 
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
+                        <li class="nav-item">
+                            <a target="_blank" href="{{ route('front.index')}}" class="nav-icon">
+                                <div class="position-relative">
+                                <i class="align-middle" data-feather="globe"></i>
+                                </div>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
                                 data-toggle="dropdown">
@@ -201,26 +213,26 @@
 
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                 data-toggle="dropdown">
-                                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1"
-                                    alt="Charles Hall" />
-                                <span class="text-dark">Charles Hall</span>
+                                <img src="{{ asset('backend') }}/img/avatars/avatar.jpg"
+                                    class="avatar img-fluid rounded mr-1" alt="Charles Hall" />
+                                <span class="text-dark">{{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1"
+                                <a class="dropdown-item" href="{{ route('admin.profile')}}"><i class="align-middle mr-1"
                                         data-feather="user"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="#"><i class="align-middle mr-1"
                                         data-feather="pie-chart"></i>
                                     Analytics</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="pages-settings.html"><i class="align-middle mr-1"
-                                        data-feather="settings"></i>
+                                <a class="dropdown-item" href="{{ route('admin.settings.index') }}"><i
+                                        class="align-middle mr-1" data-feather="settings"></i>
                                     Settings & Privacy</a>
                                 <a class="dropdown-item" href="#"><i class="align-middle mr-1"
                                         data-feather="help-circle"></i>
                                     Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}">Log out</a>
                             </div>
                         </li>
                     </ul>
@@ -261,255 +273,40 @@
             </footer>
         </div>
     </div>
-
     <script src="{{ asset('backend') }}/js/vendor.js"></script>
     <script src="{{ asset('backend') }}/js/app.js"></script>
-
+    <script src="{{ asset('defaults/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('defaults/dataTable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('defaults/dataTable/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('defaults/toastr/toastr.min.js') }}"></script>
+    <!-- Toastr -->
+    @if (Session::has('success'))
+        <script>
+            toastr.success("{{ Session::get('success') }}");
+        </script>
+    @endif
+    @if (Session::has('error'))
+        <script>
+            toastr.error("{{ Session::get('error') }}");
+        </script>
+    @endif
+    @if (Session::has('info'))
+        <script>
+            toastr.info("{{ Session::get('info') }}");
+        </script>
+    @endif
     <script>
-        $(function() {
-            var ctx = document
-                .getElementById("chartjs-dashboard-line")
-                .getContext("2d");
-            var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-            gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-            gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-            // Line chart
-            new Chart(document.getElementById("chartjs-dashboard-line"), {
-                type: "line",
-                data: {
-                    labels: [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep",
-                        "Oct",
-                        "Nov",
-                        "Dec",
-                    ],
-                    datasets: [{
-                        label: "Sales ($)",
-                        fill: true,
-                        backgroundColor: gradient,
-                        borderColor: window.theme.primary,
-                        data: [
-                            2115, 1562, 1584, 1892, 1587, 1923, 2566, 2448, 2805, 3438,
-                            2917, 3327,
-                        ],
-                    }, ],
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                    },
-                    tooltips: {
-                        intersect: false,
-                    },
-                    hover: {
-                        intersect: true,
-                    },
-                    plugins: {
-                        filler: {
-                            propagate: false,
-                        },
-                    },
-                    scales: {
-                        xAxes: [{
-                            reverse: true,
-                            gridLines: {
-                                color: "rgba(0,0,0,0.0)",
-                            },
-                        }, ],
-                        yAxes: [{
-                            ticks: {
-                                stepSize: 1000,
-                            },
-                            display: true,
-                            borderDash: [3, 3],
-                            gridLines: {
-                                color: "rgba(0,0,0,0.0)",
-                            },
-                        }, ],
-                    },
-                },
-            });
+        $(document).ready(function() {
+            $('#summernote').summernote();
         });
     </script>
     <script>
-        $(function() {
-            // Pie chart
-            new Chart(document.getElementById("chartjs-dashboard-pie"), {
-                type: "pie",
-                data: {
-                    labels: ["Chrome", "Firefox", "IE"],
-                    datasets: [{
-                        data: [4306, 3801, 1689],
-                        backgroundColor: [
-                            window.theme.primary,
-                            window.theme.warning,
-                            window.theme.danger,
-                        ],
-                        borderWidth: 5,
-                    }, ],
-                },
-                options: {
-                    responsive: !window.MSInputMethodContext,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                    },
-                    cutoutPercentage: 75,
-                },
-            });
+         $(document).ready(function() {
+            $('#datatable').DataTable();
         });
     </script>
-    <script>
-        $(function() {
-            // Bar chart
-            new Chart(document.getElementById("chartjs-dashboard-bar"), {
-                type: "bar",
-                data: {
-                    labels: [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep",
-                        "Oct",
-                        "Nov",
-                        "Dec",
-                    ],
-                    datasets: [{
-                        label: "This year",
-                        backgroundColor: window.theme.primary,
-                        borderColor: window.theme.primary,
-                        hoverBackgroundColor: window.theme.primary,
-                        hoverBorderColor: window.theme.primary,
-                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-                        barPercentage: 0.75,
-                        categoryPercentage: 0.5,
-                    }, ],
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                    },
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                display: false,
-                            },
-                            stacked: false,
-                            ticks: {
-                                stepSize: 20,
-                            },
-                        }, ],
-                        xAxes: [{
-                            stacked: false,
-                            gridLines: {
-                                color: "transparent",
-                            },
-                        }, ],
-                    },
-                },
-            });
-        });
-    </script>
-    <script>
-        $(function() {
-            $("#world_map").vectorMap({
-                map: "world_mill",
-                normalizeFunction: "polynomial",
-                hoverOpacity: 0.7,
-                hoverColor: false,
-                regionStyle: {
-                    initial: {
-                        fill: "#e3eaef",
-                    },
-                },
-                markerStyle: {
-                    initial: {
-                        r: 9,
-                        fill: window.theme.primary,
-                        "fill-opacity": 0.95,
-                        stroke: "#fff",
-                        "stroke-width": 7,
-                        "stroke-opacity": 0.4,
-                    },
-                    hover: {
-                        stroke: "#fff",
-                        "fill-opacity": 1,
-                        "stroke-width": 1.5,
-                    },
-                },
-                backgroundColor: "transparent",
-                zoomOnScroll: false,
-                markers: [{
-                        latLng: [31.230391, 121.473701],
-                        name: "Shanghai",
-                    },
-                    {
-                        latLng: [28.70406, 77.102493],
-                        name: "Delhi",
-                    },
-                    {
-                        latLng: [6.524379, 3.379206],
-                        name: "Lagos",
-                    },
-                    {
-                        latLng: [35.689487, 139.691711],
-                        name: "Tokyo",
-                    },
-                    {
-                        latLng: [23.12911, 113.264381],
-                        name: "Guangzhou",
-                    },
-                    {
-                        latLng: [40.7127837, -74.0059413],
-                        name: "New York",
-                    },
-                    {
-                        latLng: [34.052235, -118.243683],
-                        name: "Los Angeles",
-                    },
-                    {
-                        latLng: [41.878113, -87.629799],
-                        name: "Chicago",
-                    },
-                    {
-                        latLng: [51.507351, -0.127758],
-                        name: "London",
-                    },
-                    {
-                        latLng: [40.416775, -3.70379],
-                        name: "Madrid",
-                    },
-                ],
-            });
-            setTimeout(function() {
-                $(window).trigger("resize");
-            }, 250);
-        });
-    </script>
-    <script>
-        $(function() {
-            $("#datetimepicker-dashboard").datetimepicker({
-                inline: true,
-                sideBySide: false,
-                format: "L",
-            });
-        });
-    </script>
+    @include('backend.layout.include.chart_script')
+    @stack('scripts')
 </body>
 
 </html>

@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--font-awesome-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('defaults/toastr/toastr.min.css') }}">
     <!--animate.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!--bootstrap.min.css-->
@@ -36,6 +37,23 @@
     <script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/particles.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/particles.app.js') }}"></script>
+    <script src="{{ asset('defaults/toastr/toastr.min.js') }}"></script>
+    <!-- Toastr -->
+    @if (Session::has('success'))
+        <script>
+            toastr.success("{{ Session::get('success') }}");
+        </script>
+    @endif
+    @if (Session::has('error'))
+        <script>
+            toastr.error("{{ Session::get('error') }}");
+        </script>
+    @endif
+    @if (Session::has('info'))
+        <script>
+            toastr.info("{{ Session::get('info') }}");
+        </script>
+    @endif
 
     <script>
         $(document).ready(function() {

@@ -50,6 +50,9 @@ class GeneralSettingRepository extends Repository
             'linkedin' => $request->linkedin,
             'logo' => $logo ?? $generalSetting->logo,
             'favicon' => $faviconLogo ?? $generalSetting->favicon,
+            'm_title' => $request->m_title,
+            'm_description' => $request->m_description,
+            'm_keyword' => $request->m_keyword,
 
         ]);
         return $createOrupdate;

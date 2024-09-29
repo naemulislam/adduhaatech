@@ -13,10 +13,11 @@ class ProfileController extends Controller
     public function profile(){
         return view('backend.profile.profile');
     }
-    public static function profileUpdate(AdminProfileRequest $request, User $admin)
+    public function profileUpdate(AdminProfileRequest $request, User $user)
     {
-        AdminProfileRepository::updateByRequest($request, $admin);
-
-
+        //dd($request->all());
+        //dd($user);
+        AdminProfileRepository::updateByRequest($request, $user);
+        return back()->with('success', 'Profile is updated successfully!');
     }
 }

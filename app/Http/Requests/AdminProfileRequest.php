@@ -27,6 +27,7 @@ class AdminProfileRequest extends FormRequest
             'phone' => 'required|string',
             'gender' => 'required|in:male,female',
             'address' => 'nullable|string',
+            'profile_image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
         ];
     }
 }

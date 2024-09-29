@@ -38,7 +38,7 @@ Route::prefix('admin/dashboard/')->middleware(['auth', 'verified'])->as('admin.'
     //profile route
     Route::controller(ProfileController::class)->group(function(){
         Route::get('/profile','profile')->name('profile');
-        Route::post('/profile/update/{user}','profileUpdate')->name('profile.update');
+        Route::put('/profile/update/{user}','profileUpdate')->name('profile.update');
     });
 
      //Slider Route

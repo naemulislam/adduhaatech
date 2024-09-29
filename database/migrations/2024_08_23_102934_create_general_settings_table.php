@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('site_name');
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
+            $table->longText('phone')->nullable();
             $table->string('web_address')->nullable();
             $table->longText('address')->nullable();
             $table->string('facebook')->nullable();
@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
+            $table->longText('m_title')->nullable();
+            $table->longText('m_description')->nullable();
+            $table->longText('m_keyword')->nullable();
             $table->timestamps();
         });
     }

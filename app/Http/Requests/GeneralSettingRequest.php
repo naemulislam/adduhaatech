@@ -34,6 +34,9 @@ class GeneralSettingRequest extends FormRequest
             'linkedin' => 'nullable|string|max:100',
             'web_logo' => 'nullable|mimes:png,jpg,jpeg',
             'favicon' => 'nullable|mimes:png,jpg,jpeg',
+            'm_title' => 'nullable|string',
+            'm_description' => 'nullable|string',
+            'm_keyword' => 'nullable|string',
         ];
     }
 }

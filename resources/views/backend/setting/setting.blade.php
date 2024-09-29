@@ -5,6 +5,41 @@
     .previewLogo{
         width: 150px;
     }
+    .phone-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    min-height: 40px;
+    border: 1px solid #ccc;
+}
+
+.phone-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.phone-tag span {
+    margin-right: 10px;
+}
+
+.phone-tag i {
+    cursor: pointer;
+    color: #d9534f;
+}
+
+#phone-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    min-width: 100px;
+}
+
 </style>
 <div class="container-fluid p-0">
     <div class="row mb-2 mb-xl-3">
@@ -150,6 +185,29 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Website Meta Title and Description</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" name="m_title" class="form-control" placeholder="Enter meta title" value="{{ $setting?->m_title}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea name="m_description" class="form-control" placeholder="Enter meta description">{{ $setting?->m_description}}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Keyword</label>
+                                            <textarea name="m_keyword" class="form-control" placeholder="Enter meta keyword">{{ $setting?->m_keyword}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Website Logo </label>
@@ -215,5 +273,49 @@
                 URL.revokeObjectURL(output.src) // free memory
             }
         };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const phoneInput = document.getElementById('phone-input');
+    const phoneContainer = document.getElementById('phone-container');
+    const hiddenPhonesInput = document.getElementById('phones');
+    let phoneNumbers = [];
+
+    // Function to create a tag for phone number
+    function createPhoneTag(phone) {
+        const phoneTag = document.createElement('div');
+        phoneTag.classList.add('phone-tag');
+        phoneTag.innerHTML = `<span>${phone}</span><i class="fa fa-times remove-phone"></i>`;
+
+        phoneContainer.insertBefore(phoneTag, phoneInput);
+
+        phoneTag.querySelector('.remove-phone').addEventListener('click', () => {
+            phoneNumbers = phoneNumbers.filter(p => p !== phone);
+            updateHiddenInput();
+            phoneTag.remove();
+        });
+    }
+
+    // Function to update hidden input with phone numbers
+    function updateHiddenInput() {
+        hiddenPhonesInput.value = phoneNumbers.join(',');
+    }
+
+    // Event listener for when a phone number is entered
+    phoneInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter' || e.key === ',') {
+            const phone = phoneInput.value.trim();
+
+            if (phone && !phoneNumbers.includes(phone)) {
+                phoneNumbers.push(phone);
+                createPhoneTag(phone);
+                updateHiddenInput();
+            }
+
+            phoneInput.value = '';
+        }
+    });
+});
+
     </script>
 @endpush

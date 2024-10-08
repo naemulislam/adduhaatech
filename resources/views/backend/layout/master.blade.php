@@ -12,11 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Page Vendors Styles(used by this page)-->
-    {{-- <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/> --}}
     <!--end::Page Vendors Styles-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" />
-
-    <!--begin::Global Theme Styles(used by all pages)-->
 
     <!-- Select2 css code -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -26,7 +23,6 @@
     <!-- end Progressbar css link -->
 
     <link href="{{ asset('backend') }}/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    {{-- <link href="{{asset('backend')}}/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('backend') }}/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend') }}/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet"
         type="text/css" />
@@ -38,7 +34,6 @@
     <!--begin::Layout Themes(used by all pages)-->
     <link href="{{ asset('backend') }}/assets/css/themes/layout/header/base/light.css" rel="stylesheet"
         type="text/css" />
-    {{-- <link href="{{asset('backend')}}/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('backend') }}/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend') }}/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
     <!-- Multiple select css link -->
@@ -70,6 +65,9 @@
             border: 1px solid #d9d9d9 !important;
             padding: 6px;
         }
+        .previewLogo{
+            width: 200px;
+        }
         .previewImage{
             width: 200px;
         }
@@ -85,7 +83,7 @@
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="#">
-            <img alt="Logo" src="assets/media/logos/logo-light.png" />
+            <img alt="Logo" src="{{asset('frontend/assets/images/main-logo.jpg')}}" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -285,7 +283,7 @@
                                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                                     <!--begin::Page Title-->
                                     <a target="_balnk" href="{{ route('front.index') }}"
-                                        class="btn btn-light-warning font-weight-bolder btn-sm float-right">Website</a>
+                                        class="btn btn-light-warning font-weight-bolder btn-sm float-right">Website <i class="fa fa-earth"></i></a>
                                     <!--end::Page Title-->
                                 </div>
                                 <!--end::Page Heading-->
@@ -306,7 +304,7 @@
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2"><?php echo date('Y'); ?>©</span>
                             <a href="{{ route('front.index') }}" target="_blank"
-                                class="text-dark-75 text-hover-primary">Rahimaaziz foundation</a>
+                                class="text-dark-75 text-hover-primary">Ad-Duhaa Tech</a>
                         </div>
                         <!--end::Copyright-->
                         <!--begin::Nav-->
@@ -350,7 +348,7 @@
                 <div class="d-flex flex-column">
                     <a href="{{ route('admin.profile') }}"
                         class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{ Auth::user()->name }}</a>
-                    <div class="text-muted mt-1">Super Admin</div>
+                    <div class="text-muted mt-1">{{ ucfirst(Auth::user()->role) }}</div>
                     <div class="navi mt-2">
                         <a href="#" class="navi-item">
                             <span class="navi-link p-0 pb-2">
@@ -417,7 +415,7 @@
                 </a>
                 <!--end:Item-->
                 <!--begin::Item-->
-                <a href="" class="navi-item">
+                <a href="{{ route('admin.epassword') }}" class="navi-item">
                     <div class="navi-link">
                         <div class="symbol symbol-40 bg-light mr-3">
                             <div class="symbol-label">

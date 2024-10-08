@@ -26,7 +26,7 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand align-self-center" href="{{ route('front.index')}}">
-                <img src="logo/logo.png" class="logo" alt="Logo">
+                <img src="{{asset('frontend/assets/images/main-logo.jpg')}}" class="logo" alt="Logo">
             </a>
             <div class="menu-area ml-auto">
                 <ul>

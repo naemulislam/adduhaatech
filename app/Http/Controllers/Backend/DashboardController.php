@@ -19,7 +19,7 @@ class DashboardController extends Controller
         }
         return to_route('adminLogin');
     }
-    public function adminLogout()
+    public function adminLogout(Request $request)
     {
         auth()->logout();
         return to_route('adminLogin')->with('success', 'Logout successfully!');

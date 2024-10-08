@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('site_name');
             $table->string('email')->nullable();
-            $table->longText('phone')->nullable();
+            $table->string('phone1')->nullable();
+            $table->string('phone2')->nullable();
             $table->string('web_address')->nullable();
             $table->longText('address')->nullable();
             $table->string('facebook')->nullable();

@@ -21,6 +21,7 @@ class ConsultancyRepository extends Repository
             'email' => $request->email,
             'service_category' => $request->service_category,
             'service_details' => $request->service_details,
+            'status' => false
        ]);
        return $consultancyCreate;
     }

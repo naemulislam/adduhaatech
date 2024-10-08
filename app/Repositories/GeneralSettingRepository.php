@@ -15,7 +15,7 @@ class GeneralSettingRepository extends Repository
 
     public static function storyByRequest(GeneralSettingRequest $request, GeneralSetting $generalSetting){
 
-        $webLogo = $request->file('web_logo');
+        $webLogo = $request->file('logo');
         if ($webLogo) {
             $extension = $webLogo->getClientOriginalExtension();
             $fileName = 'logo'. '_' . uniqid() . '.' .$extension;
@@ -38,9 +38,10 @@ class GeneralSettingRepository extends Repository
         $createOrupdate = self::query()->updateOrCreate([
             'id' => $generalSetting->id ?? 0,
         ],[
-            'site_name' => $request->name,
+            'site_name' => $request->site_name,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'phone1' => $request->phone1,
+            'phone2' => $request->phone2,
             'web_address' => $request->web_address,
             'address' => $request->address,
             'facebook' => $request->facebook,

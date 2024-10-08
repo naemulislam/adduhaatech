@@ -22,9 +22,9 @@ class GeneralSettingRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'name' => 'required|string|max:150',
+           'site_name' => 'required|string|max:150',
             'email' => 'required|email',
-            'phone' => 'required|min:11|max:11',
+            'phone1' => 'required|min:11|max:11',
             'web_address' => 'nullable|string|max:100',
             'address' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:100',

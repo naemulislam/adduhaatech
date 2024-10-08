@@ -1,5 +1,5 @@
-@extends('backend.layout.master')
-@section('title', 'Consultancies list')
+@extends('backend.layouts.master')
+@section('title', 'Massage list')
 @section('content')
     <!--begin::Entry-->
     <div class="d-flex flex-column-fluid">
@@ -9,7 +9,7 @@
             <div class="card card-custom">
                 <div class="card-header flex-wrap py-5">
                     <div class="card-title">
-                        <h3 class="card-label">Consultancies List
+                        <h3 class="card-label">Massage List
                             <span class="d-block text-muted pt-2 font-size-sm">All massage here</span>
                         </h3>
                     </div>
@@ -21,19 +21,19 @@
                             <tr>
                                 <th>SL</th>
                                 <th>Name</th>
-                                <th>Phone</th>
                                 <th>email</th>
+                                <th>Subject</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($consultancies as $row)
+                            @foreach ($messages as $row)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->name }}</td>
-                                    <td>{{ $row->phone }}</td>
                                     <td>{{ $row->email }}</td>
+                                    <td>{{ $row->subject }}</td>
                                     <td>
                                         @if ($row->status == 0)
                                             <a href="#" class="btn label label-lg label-light-danger label-inline"> Unseen</a>
@@ -42,10 +42,10 @@
                                         @endif
                                     </td>
                                     <td class="d-flex">
-                                        <a href="{{ route('admin.consultancies.show', $row->id) }}"
+                                        <a href="{{ route('admin.message.show', $row->id) }}"
                                             class="btn btn-icon btn-info btn-hover-primary btn-xs mx-3"><i
                                                 class="fa fa-eye"></i></a>
-                                        <a id="delete" href="{{ route('admin.consultancies.destroy', $row->id) }}"
+                                        <a id="delete" href="{{ route('admin.message.destroy', $row->id) }}"
                                             class="btn btn-icon btn-danger btn-hover-primary btn-xs mx-3"><i
                                                 class="fa fa-trash"></i></a>
                                     </td>

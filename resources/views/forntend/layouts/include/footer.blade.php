@@ -6,19 +6,9 @@
                 <div class="ft-item wow animate__animated animate__fadeInUp">
                     <h5 class="ft-title">About Us</h5>
                     <div class="ft-logo">
-                        <img src="logo/logo.png" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, quisquam.</p>
-                        <form action="">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Wtah are you looking for?">
-                                <div class="input-group-prepend">
-                                    <button type="button" class="btn btn-info">Go</button>
-                                </div>
-
-                            </div>
-                        </form>
+                        <img src="{{asset('frontend/assets/images/main-logo.jpg')}}" alt="logo">
+                        <p>Adduhaatech is a technology-driven company focused on delivering cutting-edge solutions in web development, mobile apps, and digital marketing. We strive to innovate and stay at the forefront of the latest industry trends.</p>
                     </div>
-
                 </div>
             </div>
             <div class="col-md-4">
@@ -40,7 +30,7 @@
                         <div class="media">
                             <i class="fa fa-map-marker"></i>
                             <div class="media-body">
-                                <span>Dhaka, Baliadangi</span>
+                                <span>Dhaka, Bangladesh</span>
                             </div>
                         </div>
                     </div>

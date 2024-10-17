@@ -27,7 +27,7 @@ class ContactController extends Controller
         return back()->with('success', 'Message is deleted successfully!');
     }
 
-    public function store(Request $request)
+    public function contactStore(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|string|max:200',

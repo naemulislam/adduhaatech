@@ -13,6 +13,7 @@
     <!--animate.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/simple-lightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
     <!--style.css-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
@@ -32,11 +33,10 @@
     <!--owl.carousel.js-->
     <script src="{{ asset('frontend/assets/js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/jquery.scrollUp.min.js') }}"></script>
-    <!-- <script src="js/wow.min.js"></script> -->
-    <!--counterup.min.js-->
-    <script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/particles.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/particles.app.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/simple-lightbox.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/wow.min.js')}}"></script>
     <script src="{{ asset('defaults/toastr/toastr.min.js') }}"></script>
     <!-- Toastr -->
     @if (Session::has('success'))
@@ -113,6 +113,7 @@
             });
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

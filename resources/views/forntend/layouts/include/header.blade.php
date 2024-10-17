@@ -129,8 +129,8 @@
 
                     </li> --}}
 
-                    <li><a href="#!"> Contact</a></li>
-                    <li><a href="#!"> Carieer</a></li>
+                    <li><a href="{{ route('front.contact')}}"> Contact</a></li>
+                    <li><a href="#!"> Career</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars menu-icon"></i>
@@ -143,7 +143,7 @@
 <div class="mobile-menu">
     <div class="mm-logo" style="background: #fff; padding: 11px 18px;">
         <a href="#">
-            <img style="width: 55px;" src="logo/logo.png" alt="logo">
+            <img style="width: 55px;" src="{{asset('frontend/assets/images/main-logo.jpg')}}" alt="logo">
         </a>
         <div class="mm-cross-icon">
             <i class="fa fa-times mm-ci"></i>
@@ -279,12 +279,12 @@
             </div> --}}
             <div class="menu-box">
                 <div class="menu-link">
-                    <a href="#"> Contact</a>
+                    <a href="{{ route('front.contact')}}"> Contact</a>
                 </div>
             </div>
             <div class="menu-box">
                 <div class="menu-link">
-                    <a href="#"> Carieer</a>
+                    <a href="#"> Career</a>
                 </div>
             </div>
         </div>

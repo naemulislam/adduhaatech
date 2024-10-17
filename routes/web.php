@@ -25,10 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrontendController::class)->as('front.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/consultancy', 'consultancy')->name('consultancy');
-    Route::post('/consultancy/store', 'consultancyStore')->name('consultancy.store');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/test', 'json');
 });
 Route::post('/consultancy/store', [ConsultancyController::class, 'consultancyStore'])->name('front.consultancy.store');
+Route::post('/contact/store', [ContactController::class, 'contactStore'])->name('front.contact.store');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/admin/auth/login', 'adminLogin')->name('adminLogin');

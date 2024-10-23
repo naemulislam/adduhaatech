@@ -30,7 +30,7 @@
                         <div class="media">
                             <i class="fa fa-map-marker"></i>
                             <div class="media-body">
-                                <span>Dhaka, Bangladesh</span>
+                                <span>{{$setting->address ?? ''}}</span>
                             </div>
                         </div>
                     </div>
@@ -38,13 +38,13 @@
                         <div class="media">
                             <i class="fa fa-phone"></i>
                             <div class="media-body">
-                                <span>Phone : +8801811992785</span>
+                                <span>Phone : +88{{$setting->phone1 ?? ''}}</span>
                             </div>
                         </div>
                         <div class="media">
                             <i class="fa fa-phone"></i>
                             <div class="media-body">
-                                <span>Phone : +8801540035712</span>
+                                <span>Phone : +88{{$setting->phone2 ?? ''}}</span>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="media">
                             <i class="fa fa-globe"></i>
                             <div class="media-body">
-                                <span>Website: <a href="#">adduhaatech.com</a></span>
+                                <span>Website: <a href="{{$setting->web_address ?? ''}}">{{$setting->web_address ?? ''}}</a></span>
                             </div>
                         </div>
                     </div>
@@ -60,15 +60,16 @@
                         <div class="media">
                             <i class="fa fa-envelope"></i>
                             <div class="media-body">
-                                <span>Email: <a href="#">info@adduhaatech.com</a></span>
+                                <span>Email: <a href="mailto:{{$setting->email ?? ''}}">{{$setting->email ?? ''}}</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="ft-social mt-3">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a target="_blank" href="{{$setting->facebook ?? '#'}}"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="{{$setting->youtube ?? '#'}}"><i class="fa fa-youtube"></i></a>
+                        <a target="_blank" href="{{$setting->twitter ?? '#'}}"><i class="fa fa-twitter"></i></a>
+                        <a target="_blank" href="{{$setting->instagram ?? '#'}}"><i class="fa fa-instagram"></i></a>
+                        <a target="_blank" href="{{$setting->linkedin ?? '#'}}"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>

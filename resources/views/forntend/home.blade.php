@@ -155,7 +155,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>8+</h5>
+                        <h5 class="counter" data-target="500">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Years online</h5>
@@ -166,7 +166,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>500+</h5>
+                        <h5 class="counter" data-target="350">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Uniqe Items</h5>
@@ -177,7 +177,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>7400+</h5>
+                        <h5 class="counter" data-target="300">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Item Sold</h5>
@@ -188,7 +188,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>5800+</h5>
+                        <h5 class="counter" data-target="100">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Happt Clients</h5>
@@ -199,7 +199,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>5800+</h5>
+                        <h5 class="counter" data-target="200">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Happt Clients</h5>
@@ -210,7 +210,7 @@
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
-                        <h5>5800+</h5>
+                        <h5 class="counter" data-target="800">0</h5>
                     </div>
                     <div class="sf-txt-box">
                         <h5>Happt Clients</h5>
@@ -344,4 +344,23 @@
             var $gallery = new SimpleLightbox('.project-images .view-image', {});
         })();
 </script>
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll(".counter");
+    counters.forEach((counter) => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / 200; // Speed of count
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
 @endpush

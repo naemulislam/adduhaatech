@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function adminLogin(){
+    public function adminLogin()
+    {
         if (auth()->check()) {
             $checkAdmin = Auth::user()->role == 'admin' || Auth::user()->role == 'editor' || Auth::user()->role == 'manager';
             if ($checkAdmin) {
@@ -25,15 +26,29 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         $adminUser = UserRepository::query()->where('email', $request->email)->first();
-        if ($adminUser->status == true) {
-            if (auth()->attempt($request->only('email', 'password'))) {
+        if ($adminUser) {
+            if ($adminUser->status == true) {
+                if (auth()->attempt($request->only('email', 'password'))) { //smdsiddiqurrahman68@
 
-                return to_route('admin.dashboard')->with('success', 'Successfully Login!');
+                    return to_route('admin.dashboard')->with('success', 'Successfully Login!');
+                } else {
+                    return to_route('adminLogin')->with('error', 'Oppes! Somethis want wrong. Please try again');
+                }
             } else {
-                return to_route('adminLogin')->with('error', 'Oppes! You have entered invalid credentials');
+                return back()->with('error', 'Oppes! Your account has been deactivated!');
             }
         } else {
-            return back()->with('error', 'Oppes! Your account has been deactivated!');
+            return to_route('adminLogin')->with('error', 'Oppes! You have entered invalid credentials');
         }
+        // if ($adminUser->status == true) {//01703118126
+        //     if (auth()->attempt($request->only('email', 'password'))) {//smdsiddiqurrahman68@
+
+        //         return to_route('admin.dashboard')->with('success', 'Successfully Login!');
+        //     } else {
+        //         return to_route('adminLogin')->with('error', 'Oppes! You have entered invalid credentials');
+        //     }
+        // } else {
+        //     return back()->with('error', 'Oppes! Your account has been deactivated!');
+        // }
     }
 }

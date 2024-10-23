@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" href="logo/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="{{$setting->m_title ?? ''}}">
+    <meta name="description" content="{{$setting->m_description ?? ''}}">
+    <meta name="keyword" content="{{$setting->m_keyword ?? ''}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{$setting->favicon ?? ''}}" type="image/x-icon">
     <!--font-awesome-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('defaults/toastr/toastr.min.css') }}">

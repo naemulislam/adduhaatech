@@ -4,16 +4,17 @@
         <div class="row">
             <div class="col-md-6 align-self-center">
                 <div class="ht-email">
-                    <span class="mr-3"><i class="fa fa-phone mr-1"></i> +8801811992785</span>
-                    <span><i class="fa fa-envelope mr-1"></i> info@adduhaatech.com</span>
+                    <span class="mr-3"><i class="fa fa-phone mr-1"></i> <a href="tel:{{$setting->phone1 ?? ''}}">+88{{$setting->phone1 ?? ''}}</a></span>
+                    <span><i class="fa fa-envelope mr-1"></i><a href="mailto:{{$setting->email ?? ''}}">{{$setting->email ?? ''}}</a></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="ht-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a target="_blank" href="{{$setting->facebook ?? '#'}}"><i class="fa fa-facebook"></i></a>
+                    <a target="_blank" href="{{$setting->youtube ?? '#'}}"><i class="fa fa-youtube"></i></a>
+                    <a target="_blank" href="{{$setting->twitter ?? '#'}}"><i class="fa fa-twitter"></i></a>
+                    <a target="_blank" href="{{$setting->instagram ?? '#'}}"><i class="fa fa-instagram"></i></a>
+                    <a target="_blank" href="{{$setting->linkedin ?? '#'}}"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -26,7 +27,7 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand align-self-center" href="{{ route('front.index')}}">
-                <img src="{{asset('frontend/assets/images/main-logo.jpg')}}" class="logo" alt="Logo">
+                <img src="{{ asset($setting->logo ?? '')}}" class="logo" alt="Logo">
             </a>
             <div class="menu-area ml-auto">
                 <ul>

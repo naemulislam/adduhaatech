@@ -52,6 +52,11 @@
     font-size: 14px;
     color: #fff;
 }
+.ht-email span a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+}
 
 .ht-social a {
     /* background: #fff; */
@@ -529,7 +534,7 @@ a {
 }
 .sf-box {
     background-color: #fff;
-    padding: 10px 5px;
+    padding: 0px 0px;
     box-shadow: var(--shadow-hover);
     border-radius: 9px;
     border: 2px solid #054c43;
@@ -543,10 +548,23 @@ a {
     margin-top: 37px;
     font-size: 35px;
     margin-bottom: 7px;
+    color: #6185c3;
+}
+.sf-txt-box{
+    background-color: var(--primary);
 }
 
-.sf-icon-box h5 {
+.sf-icon-box > h5 {
+    color: var(--primary);
     font-size: 28px;
+    margin: 0;
+}
+.sf-txt-box > h5 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+    padding: 5px 0px;
 }
 .sf-box:hover{
     rotate: 360deg;

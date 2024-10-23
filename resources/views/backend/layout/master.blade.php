@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@yield('title')</title>
-    <meta name="description" content="" />
+    <meta name="description" content="{{$setting->m_description ?? ''}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />

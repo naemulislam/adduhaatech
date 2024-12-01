@@ -1,6 +1,34 @@
 @extends('forntend.layouts.master')
 @section('title', 'Adduhaa Tech')
 @section('content')
+<style>
+    .slowgan-box {
+  text-align: center;
+}
+
+.slowgan-box span {
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f53147, #ffc300, #0a7156, #007bff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: animateGradient 4s ease-in-out infinite;
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>
   <!--start slider area-->
 @include('forntend.layouts.include.slider')
 <!--end slider area-->
@@ -11,7 +39,9 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="banner-box">
-                    <h1>We Build Outstanding Digital Products For Innovative Brands</h1>
+                    <div class="slowgan-box">
+                        <span>We Build Outstanding Digital Products For Innovative Brands</span>
+                    </div>
                     <h4>Looking for the best software development company online? We build amazing Web & eCommerce solutions, Custom software for Accounts, UI/UX design, mobile app development, HRM & more</h4>
                 </div>
             </div>

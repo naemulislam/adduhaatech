@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\GeneralSettingController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\SoftwareController;
 use App\Http\Controllers\Common\ConsultancyController;
 use App\Http\Controllers\Common\ContactController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -61,6 +62,17 @@ Route::prefix('admin/dashboard/')->middleware(['auth', 'verified'])->as('admin.'
         Route::put('/slider/update/{slider}', 'update')->name('slider.update');
         Route::get('/slider/destroy/{slider}', 'destroy')->name('slider.destroy');
         Route::post('/slider/status/{slider}', 'status')->name('slider.status');
+    });
+    //Software Route
+    Route::controller(SoftwareController::class)->group(function () {
+        Route::get('/softwares', 'index')->name('software.index');
+        Route::get('/software/create', 'create')->name('software.create');
+        Route::post('/software/store', 'store')->name('software.store');
+        Route::put('/software/show/{software}', 'show')->name('software.show');
+        Route::put('/software/update/{software}', 'update')->name('software.update');
+        Route::put('/software/edit/{software}', 'edit')->name('software.edit');
+        Route::get('/software/destroy/{software}', 'destroy')->name('software.destroy');
+        Route::post('/software/status/{software}', 'status')->name('software.status');
     });
 
     //General Setting

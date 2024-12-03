@@ -240,6 +240,11 @@
                                     </span>
                                 </div>
                             </div>
+                            <div class="topbar-item">
+                                <div class="btn btn-icon btn-clean btn-lg mr-1">
+                                    <a target="_blank" href="{{ route('front.index')}}"><i class="fa fa-globe"></i></a>
+                                </div>
+                            </div>
                             <!--end::Chat-->
                             <!--begin::User-->
                             <div class="topbar-item">
@@ -473,16 +478,7 @@
     <script src="{{ asset('backend') }}/assets/plugins/global/plugins.bundle.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
     <script src="{{ asset('backend') }}/assets/js/scripts.bundle.js"></script>
-    {{-- <script src="{{asset('backend')}}/assets/js/pages/crud/file-upload/image-input.js"></script> --}}
-    <!--end::Global Theme Bundle-->
-    <!--begin::Page Vendors(used by this page)-->
-    {{-- <script src="{{asset('backend')}}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script> --}}
-    <!--end::Page Vendors-->
-    {{-- <script src="{{asset('backend')}}/assets/plugins/custom/datatables/datatables.bundle.js"></script> --}}
-    <!--end::Page Vendors-->
-    <!--begin::Page Scripts(used by this page)-->
-    {{-- <script src="{{asset('backend')}}/assets/js/pages/crud/datatables/basic/paginations.js"></script> --}}
-    <!--begin::Page Scripts(used by this page)-->
+
     <script src="{{ asset('backend') }}/assets/js/pages/widgets.js"></script>
     <!--end::Page Scripts-->
     <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>
@@ -507,10 +503,15 @@
     <!-- Data Table js code-->
     <script src="{{ asset('backend') }}/assets/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('backend') }}/assets/js/dataTables.bootstrap4.min.js"></script>
-    {{-- <script src="{{asset('backend')}}/assets/js/jquery.bsValidate.js"></script> --}}
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable();
+        });
+    </script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Type some description..',
+            height: 120,
         });
     </script>
     <!--End Data Table js code-->

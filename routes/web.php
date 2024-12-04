@@ -68,11 +68,11 @@ Route::prefix('admin/dashboard/')->middleware(['auth', 'verified'])->as('admin.'
         Route::get('/softwares', 'index')->name('software.index');
         Route::get('/software/create', 'create')->name('software.create');
         Route::post('/software/store', 'store')->name('software.store');
-        Route::put('/software/show/{software}', 'show')->name('software.show');
+        Route::get('/software/show/{software}', 'show')->name('software.show');
+        Route::get('/software/edit/{software}', 'edit')->name('software.edit');
         Route::put('/software/update/{software}', 'update')->name('software.update');
-        Route::put('/software/edit/{software}', 'edit')->name('software.edit');
         Route::get('/software/destroy/{software}', 'destroy')->name('software.destroy');
-        Route::post('/software/status/{software}', 'status')->name('software.status');
+        Route::post('/software/status', 'status_update')->name('software.status');
     });
 
     //General Setting

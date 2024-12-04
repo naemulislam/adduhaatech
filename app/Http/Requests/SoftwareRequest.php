@@ -21,11 +21,19 @@ class SoftwareRequest extends FormRequest
      */
     public function rules(): array
     {
+        $thumbnail = 'required|mimes:png,jpg,jpeg';
+        $order = 'required|numeric|unique:software,order';
+        if(request()->isMethod('put')){
+            $thumbnail = 'nullable|mimes:png,jpg,jpeg';
+            $uniqueId = request()->route('id');
+            $order = 'required|numeric|unique:software,order,'.$uniqueId;
+        }
+
         return [
             'software_name' => 'required|string',
             'description' => 'required',
-            'order' => 'required|numeric|unique:software,order',
-            'thumbnail' => 'required|mimes:png,jpg,jpeg',
+            'order' => $order,
+            'thumbnail' => $thumbnail,
             'images' => 'nullable'
         ];
     }

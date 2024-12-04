@@ -24,35 +24,88 @@ class SoftwareRepository extends Repository
     {
         $thumbnail = null;
         $file = $request->file('thumbnail');
-        if($file){
+        if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $fileName = 'thumbnail'.'_'. uniqid().'.'.$extension;
+            $fileName = 'thumbnail' . '_' . uniqid() . '.' . $extension;
             $file->move(public_path('uploaded/software'), $fileName);
-            $thumbnail = '/uploaded/software/'. $fileName;
+            $thumbnail = '/uploaded/software/' . $fileName;
         }
 
         $multiimage = [];
         $images = $request->file('images');
-        //dd($images);
-        if($images){
-            foreach($images as $image){
-                if($image){
+
+        if ($images) {
+            foreach ($images as $image) {
+                if ($image) {
                     $extension = $image->getClientOriginalExtension();
-                    $imageName = 'image'.'_'. uniqid().'.'.$extension;
+                    $imageName = 'image_' . uniqid() . '.' . $extension;
                     $image->move(public_path('uploaded/software/images'), $imageName);
-                    $imagePath = '/uploaded/software/images/'. $imageName;
-                    $multiimage [] = $imagePath;
+                    $imagePath = '/uploaded/software/images/' . $imageName;
+
+                    $multiimage[] = $imagePath;
                 }
             }
-            array_push($multiimage, $imagePath);
         }
-       return self::create([
+        return self::create([
             'name' => $request->software_name,
             'slug' => Str::slug($request->software_name),
             'description' => $request->description,
             'order' => $request->order,
             'thumbnail' => $thumbnail,
             'images' => json_encode($multiimage)
-       ]);
+        ]);
+    }
+    public static function updateByRequest(SoftwareRequest $request, Software $software)
+    {
+        $file = $request->file('thumbnail');
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+            $fileName = 'thumbnail' . '_' . uniqid() . '.' . $extension;
+            if ($software->thumbnail) {
+                $filePath = public_path($software->thumbnail);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+                unlink(public_path($software->thumbnail));
+            }
+            $file->move(public_path('uploaded/software'), $fileName);
+            $thumbnail = '/uploaded/software/' . $fileName;
+        }
+
+        $existingImages = json_decode($software->images) ?? []; // Existing images
+        $uploadedImages = [];
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $extension = $image->getClientOriginalExtension();
+                $imageName = 'image_' . uniqid() . '.' . $extension;
+
+                $image->move(public_path('uploaded/software/images'), $imageName);
+                $uploadedImages[] = '/uploaded/software/images/' . $imageName;
+            }
+        }
+        if ($request->has('delete_images')) {
+            $imagesToDelete = $request->input('delete_images');
+            $existingImages = array_diff($existingImages, $imagesToDelete);
+
+            // Optionally delete the files from the server
+            foreach ($imagesToDelete as $image) {
+                $filePath = public_path($image);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+        }
+
+
+        $allImages = array_merge($existingImages, $uploadedImages);
+        return self::update($software,[
+            'name' => $request->software_name,
+            'slug' => Str::slug($request->software_name),
+            'description' => $request->description,
+            'order' => $request->order,
+            'thumbnail' => $thumbnail ?? $software->thumbnail,
+            'images' => json_encode($allImages)
+        ]);
     }
 }

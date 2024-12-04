@@ -13,7 +13,7 @@
                             <h3 class="card-title">Software</h3>
                             <div class="card-toolbar">
                                 <!--begin::Button-->
-                                <a href="" class="btn btn-primary btn-sm font-weight-bolder">
+                                <a href="{{route('admin.software.index')}}" class="btn btn-primary btn-sm font-weight-bolder">
                                     < Back</a>
                                         <!--end::Button-->
                             </div>
@@ -111,14 +111,6 @@
             output.src = URL.createObjectURL(event.target.files[0]);
             output.onload = function() {
                 URL.revokeObjectURL(output.src) // free memory
-            }
-        };
-        var loadFile2 = function(event) {
-            //image 2
-            var favicon = document.getElementById('favicon');
-            favicon.src = URL.createObjectURL(event.target.files[0]);
-            favicon.onload = function() {
-                URL.revokeObjectURL(favicon.src) // free memory
             }
         };
     </script>

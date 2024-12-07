@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SoftwareRequest extends FormRequest
+class ServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,19 +21,17 @@ class SoftwareRequest extends FormRequest
      */
     public function rules(): array
     {
-        $thumbnail = 'required|mimes:png,jpg,jpeg';
-        $order = 'required|numeric|unique:software,order';
+        $order = 'required|numeric|unique:services,order';
         if(request()->isMethod('put')) {
-            $thumbnail = 'nullable|mimes:png,jpg,jpeg';
             $order = 'nullable';
         }
 
         return [
-            'software_name' => 'required|string',
+            'service_name' => 'required|string',
             'description' => 'required',
             'order' => $order,
-            'thumbnail' => $thumbnail,
-            'images' => 'nullable'
+            'thumbnail' => 'nullable|mimes:png,jpg,jpeg',
+            'icon' =>'nullable|mimes:png,jpg,jpeg',
         ];
     }
 }

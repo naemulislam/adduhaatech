@@ -2,36 +2,50 @@
 @section('title', 'Adduhaa Tech')
 @section('content')
 <style>
-    .slowgan-box {
-  text-align: center;
-}
-
-.slowgan-box span {
-  font-size: 40px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #f53147, #ffc300, #0a7156, #007bff);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: animateGradient 4s ease-in-out infinite;
-}
-
-@keyframes animateGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+ 
 </style>
   <!--start slider area-->
 @include('forntend.layouts.include.slider')
 <!--end slider area-->
+<!-- Core Values Section -->
+<section class="my-3" style="background: #fff;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <h2>Our Core Values</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="core-value">
+                            <h5>Integrity</h5>
+                            <p>We uphold the highest standards of honesty and ethics, ensuring trust and transparency in
+                                every project.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="core-value">
+                            <h5>Innovation</h5>
+                            <p>We embrace creativity and continuously explore new technologies to deliver cutting-edge
+                                solutions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="core-value">
+                            <h5>Customer Success</h5>
+                            <p>Our priority is our clients' satisfaction, and we go above and beyond to achieve it through
+                                exceptional service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--start Banner section-->
 <section id="particles-js" class="home-banner-section">
@@ -53,14 +67,14 @@
     <div class="container">
         <div class="row align-items-center">
             <!-- Left Side: Text Section -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3">
                 <div class="about-us-content">
                     <h2>About Adduhaatech</h2>
                     <p>
                         Adduhaatech is a technology-driven company focused on delivering cutting-edge solutions in web development,
                         mobile apps, and digital marketing. We strive to innovate and stay at the forefront of the latest industry trends.
                     </p>
-                    <a href="#" class="btn learn-more-btn">Learn More</a>
+                    <a href="{{ route('front.aboutUs') }}" class="btn learn-more-btn">Learn More</a>
                 </div>
             </div>
             <!-- Right Side: Image Section -->
@@ -181,7 +195,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
@@ -192,7 +206,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
@@ -203,7 +217,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
@@ -214,7 +228,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
@@ -225,7 +239,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>
@@ -236,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-6 col-md-2 mb-3">
                 <div class="sf-box text-center wow animate__animated animate__fadeInUp ">
                     <div class="sf-icon-box mb-3">
                         <i class="fa fa-superpowers"></i>

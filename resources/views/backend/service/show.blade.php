@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('title', 'Software')
+@section('title', 'Service')
 @section('content')
     <!--begin::Entry-->
     <div class="d-flex flex-column-fluid">
@@ -10,10 +10,10 @@
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
                         <div class="card-header">
-                            <h3 class="card-title">Software Details</h3>
+                            <h3 class="card-title">Service Details</h3>
                             <div class="card-toolbar">
                                 <!--begin::Button-->
-                                <a href="{{ route('admin.software.index') }}"
+                                <a href="{{ route('admin.service.index') }}"
                                     class="btn btn-primary btn-sm font-weight-bolder">
                                     < Back</a>
                             </div>
@@ -23,29 +23,26 @@
                             <div class="row">
                                 <div class="col-sm-12 mb-3">
                                     <div class="sf-name">
-                                        <h3>Software Name: {{ $software->name }}</h3>
+                                        <h3>Service Name: {{ $service->name }}</h3>
                                     </div>
                                 </div>
-                                @if ($software->thumbnail)
-                                    <div class="col-sm-12 mb-3">
-                                        <h4>Software Thumbnail:</h4><br />
-                                        <img src="{{ $software->thumbnail }}" style="width:300px;" alt="">
+                                <div class="col-sm-12 mb-3">
+                                    <h4 class="m-0">Service Description:</h4>
+                                    <p>{!! $service->description !!}</p>
+                                </div>
+                                @if ($service->thumbnail)
+                                    <div class="col-sm-6 mb-3">
+                                        <h4>Service Thumbnail:</h4><br />
+                                        <img src="{{ $service->thumbnail }}" style="width: 300px;" alt="">
                                     </div>
                                 @endif
-                                <div class="col-sm-12 mb-3">
-                                    <h4 class="m-0">Software Description:</h4>
-                                    <p>{!! $software->description !!}</p>
-                                </div>
+                                @if ($service->icon)
+                                    <div class="col-sm-6 mb-3">
+                                        <h4>Service Icon:</h4><br />
+                                        <img src="{{ $service->icon }}" style="width: 150px;" alt="">
+                                    </div>
+                                @endif
                             </div>
-                            @if (count(json_decode($software->images)) > 0)
-                                <div class="row">
-                                    @foreach (json_decode($software->images) as $img)
-                                        <div class="col-md-3">
-                                            <img src="{{ $img }}" style="width:60px;">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endif
                         </div>
                         <!--end::Form-->
                     </div>

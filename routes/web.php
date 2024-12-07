@@ -10,6 +10,7 @@ use App\Http\Controllers\Common\ConsultancyController;
 use App\Http\Controllers\Common\ContactController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(FrontendController::class)->as('front.')->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/about-us', 'aboutUs')->name('aboutUs');
     Route::get('/consultancy', 'consultancy')->name('consultancy');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'contactStore')->name('contact.store');
+    Route::get('/software/{slug}', 'showSoftware')->name('show.software');
+    Route::get('/static-website', 'staticWebsite')->name('static_website');
+    Route::get('/dynamic-website', 'dynamicWebsite')->name('dynamic_website');
+    Route::get('/ecommerce-website', 'ecommerceWebsite')->name('ecommerce_website');
+    Route::get('/news-portal', 'newsPortal')->name('news_portal');
     Route::get('/test', 'json');
 });
 Route::post('/consultancy/store', [ConsultancyController::class, 'consultancyStore'])->name('front.consultancy.store');
@@ -73,6 +80,17 @@ Route::prefix('admin/dashboard/')->middleware(['auth', 'verified'])->as('admin.'
         Route::put('/software/update/{software}', 'update')->name('software.update');
         Route::get('/software/destroy/{software}', 'destroy')->name('software.destroy');
         Route::post('/software/status', 'status_update')->name('software.status');
+    });
+    //Service Route
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/services', 'index')->name('service.index');
+        Route::get('/service/create', 'create')->name('service.create');
+        Route::post('/service/store', 'store')->name('service.store');
+        Route::get('/service/show/{service}', 'show')->name('service.show');
+        Route::get('/service/edit/{service}', 'edit')->name('service.edit');
+        Route::put('/service/update/{service}', 'update')->name('service.update');
+        Route::get('/service/destroy/{service}', 'destroy')->name('service.destroy');
+        Route::post('/service/status', 'status_update')->name('service.status');
     });
 
     //General Setting

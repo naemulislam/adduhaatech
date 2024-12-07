@@ -66,7 +66,6 @@ class SoftwareRepository extends Repository
                 if (file_exists($filePath)) {
                     unlink($filePath);
                 }
-                unlink(public_path($software->thumbnail));
             }
             $file->move(public_path('uploaded/software'), $fileName);
             $thumbnail = '/uploaded/software/' . $fileName;

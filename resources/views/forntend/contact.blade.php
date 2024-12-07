@@ -15,22 +15,22 @@
                 <div class="col-lg-4">
                     <div class="address">
                         <h4>ADDRESS:</h4>
-                        <p>138-26 95th Ave Jamaica, NY 11435</p>
+                        <p>{{$setting->address}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="email">
                         <h4>Email:</h4>
-                        <a target="_blank" href="mailto://info@pobfoundation.com">
-                            <span>support@pobfoundation.com</span>
+                        <a target="_blank" href="mailto://{{$setting->email}}">
+                            <span>{{$setting->email}}</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="phone">
                         <h4>Phone:</h4>
-                        <a href="tel://+1(718)795-8628">
-                            <span>+1(718)795-8628</span>
+                        <a href="tel://{{$setting->phone1}}">
+                            <span>{{$setting->phone1}}</span>
                         </a>
 
                     </div>
